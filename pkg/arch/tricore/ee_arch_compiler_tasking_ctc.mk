@@ -231,7 +231,7 @@ TARGET_NAME ?= erika3app
 
 # Add application file to dependencies
 ifneq ($(call iseeopt, OS_EE_BUILD), yes)
-export APP_TARGETS := $(TARGET_NAME).dump
+export APP_TARGETS := $(TARGET_NAME).elf
 $(info APP_TARGETS=$(APP_TARGETS))
 endif	# !OS_EE_BUILD
 
