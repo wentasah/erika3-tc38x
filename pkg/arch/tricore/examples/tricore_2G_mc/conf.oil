@@ -73,8 +73,8 @@ CPU test_application {
       };
     };
 
-    MCU_DATA = TC39X {
-      DERIVATIVE = "tc397xe";
+    MCU_DATA = TC39X { // This also works for TC38X
+      DERIVATIVE = "tc397xe"; // Used for Lauterbach debugger, not needed for Aurix Studio
       //DERIVATIVE = "tc399xe-Astep";
       //REVISION = "AA";
     };
