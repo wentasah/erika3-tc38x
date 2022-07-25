@@ -243,3 +243,22 @@ export APP_TARGETS := $(TARGET_NAME).elf
 $(info APP_TARGETS=$(APP_TARGETS))
 endif	# !OS_EE_BUILD
 
+# iLLD support is included only in application build, not in EE kernel build.
+ifneq ($(call iseeopt, OS_EE_BUILD), yes)
+# Add include paths to iLLD. This relies on the fact that Erika is
+# located in a subdirectory of Aurix Studio project and iLLD-related
+# files are in other subdirectories (where they are copied by default
+# by the IDE).
+INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Configurations)))
+INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/Infra/Platform)))
+INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/Infra/Sfr/TC38A/_Reg)))
+INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/iLLD/TC38A/Tricore)))
+INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/Service/CpuGeneric)))
+
+# Add a subset of iLLD drivers to application build.
+OS_EE_APP_CFG_SRCS += \
+  ../Libraries/iLLD/TC38A/Tricore/Port/Std/IfxPort.c \
+  ../Libraries/iLLD/TC38A/Tricore/Port/Std/IfxPort.c \
+  ../Libraries/iLLD/TC38A/Tricore/_Impl/IfxPort_cfg.c \
+  ../Libraries/iLLD/TC38A/Tricore/Scu/Std/IfxScuWdt.c
+endif # OS_EE_BUILD
