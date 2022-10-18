@@ -92,10 +92,11 @@ CPU test_application {
     };
   };
 
-  APPDATA tricore_2G_mc {
+  APPDATA tricore_2G_mc_blink {
     APP_SRC="master.c";
     APP_SRC="slave1.c";
     APP_SRC="slave2.c";
+    APP_SRC="Blinky_LED.c";
   };
 
   TASK TaskMaster {

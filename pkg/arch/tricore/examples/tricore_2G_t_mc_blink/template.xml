@@ -43,19 +43,21 @@
   ###*E*###
   -->
 
-<evidence_example version="1" ID="tricore_2G_mc">
+<evidence_example version="1" ID="tricore_2G_mc_blink">
 
   <category>TriCore/AURIX 2G/TASKING</category>
-  <title>MultiCore</title>
+  <title>MultiCore + Blink</title>
 
   <small_descr>
-    MultiCore Demo.
+    MultiCore Demo with LED blinking.
   </small_descr>
 
   <long_descr>
     MultiCore Demo. Test remote task activation, with ActivateTask primitive
     (from Core1 to Core2) and with alarm (from Core2 to Core0), and remote
-    task release with primitive SetEvent (from Core0 to Core1).
+    task release with primitive SetEvent (from Core0 to Core1). The events
+    are handled by blining a LED. This functionality demonstrates initial
+    integration of iLLD drivers into the build process.
 
     This demo is pre-configured to use TASKING compiler
     (CPU_DATA.COMPILER=TASKING; with ID = 0x0)
@@ -68,6 +70,8 @@
     <!-- <file     name="appl.oil"/> -->
     <file     name="conf.oil"/>
     <file     name="shared.h"/>
+    <file     name="Blinky_LED.c"/>
+    <file     name="Blinky_LED.h"/>
     <!-- <file     name="os.oil"/> -->
     <!-- <file     name="makefile"/> -->
  </file_section>

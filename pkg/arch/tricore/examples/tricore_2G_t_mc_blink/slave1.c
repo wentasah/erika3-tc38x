@@ -47,6 +47,9 @@
 #include "Os_MemMap.h"
 #endif /* __TASKING__ */
 
+#include <stdio.h>
+#include "Blinky_LED.h"
+
 void idle_hook_core1(void);
 void idle_hook_core1(void)
 {
@@ -56,6 +59,8 @@ void idle_hook_core1(void)
 TASK(TaskSlave1)
 {
   while (1) {
+    printf("TaskSlave1\n");
+    blinkLED();
     WaitEvent(RemoteEvent);
     ActivateTask(TaskSlave2);
     ClearEvent(RemoteEvent);

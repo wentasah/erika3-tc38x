@@ -91,6 +91,7 @@ void idle_hook_core0(void)
 #include "Os_MemMap.h"
 #endif /* __TASKING__ */
 
+#include "Blinky_LED.h"
 /*
  * MAIN TASK
  */
@@ -99,6 +100,8 @@ int main(void)
   StatusType       status;
   AppModeType      mode;
   CoreIdType const core_id = GetCoreID();
+
+  initLED();
 
   if (core_id == OS_CORE_ID_MASTER) {
     StartCore(OS_CORE_ID_1, &status);
