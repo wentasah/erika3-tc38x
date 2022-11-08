@@ -65,8 +65,13 @@
 #define __BMHD3_CONFIG  __BMHD_GENERATE
 #endif /* OSEE_TC_LINK_BMHD */
 
+#if defined(__PROC_TC39X__) || defined(__PROC_TC38X__)
+#if defined(__PROC_TC38X__)
+#include "tc38x.lsl"
+#endif
 #if defined(__PROC_TC39X__)
 #include "tc39x.lsl"
+#endif
 
 /* N.B. abs18 addressing is broken (especially in for AURIX 2G).
         I forced it off. */
@@ -111,6 +116,7 @@ section_layout mpe:vtc:linear
     select "*(.CPU3.code|.CPU3.code*)";
   }
 
+#if defined(__PROC_TC39X__)
   group tc4_liner_const (run_addr=mem:mpe:pflash4) {
     select "*(.CPU4.ee_kernel_const|.CPU4.ee_kernel_const*)";
   }
@@ -126,6 +132,7 @@ section_layout mpe:vtc:linear
   group tc5_liner_code (run_addr=mem:mpe:pflash5) {
     select "*(.CPU6.code|.CPU6.code*)";
   }
+#endif
 
 }
 
@@ -157,6 +164,7 @@ section_layout mpe:tc3:linear
   }
 }
 
+#if defined(__PROC_TC39X__)
 section_layout mpe:tc4:linear
 {
   group tc4_private_code (run_addr = mem:mpe:pflash4, nocopy, attributes=rx) {
@@ -170,6 +178,7 @@ section_layout mpe:tc5:linear
     select "*(.text|.text*)";
   }
 }
+#endif
 
 #else
 #include <cpu.lsl>
