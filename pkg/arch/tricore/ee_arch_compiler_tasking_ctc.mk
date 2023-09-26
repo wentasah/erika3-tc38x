@@ -254,11 +254,28 @@ INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/I
 INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/Infra/Sfr/TC38A/_Reg)))
 INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/iLLD/TC38A/Tricore)))
 INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/Service/CpuGeneric)))
-
+# iLLD CAN implementation
+INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/iLLD/TC38A/Tricore/Cpu/Std)))
+INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/iLLD/TC38A/Tricore/Can/Can)))
+INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/iLLD/TC38A/Tricore/Can/Std)))
+INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/iLLD/TC38A/Tricore/Cpu/Irq)))
+INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/iLLD/TC38A/Tricore/Port/Std)))
+INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/iLLD/TC38A/Tricore/Scu/Std)))
+INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/iLLD/TC38A/Tricore/_PinMap)))
 # Add a subset of iLLD drivers to application build.
 OS_EE_APP_CFG_SRCS += \
   ../Libraries/iLLD/TC38A/Tricore/Port/Std/IfxPort.c \
   ../Libraries/iLLD/TC38A/Tricore/Port/Std/IfxPort.c \
   ../Libraries/iLLD/TC38A/Tricore/_Impl/IfxPort_cfg.c \
-  ../Libraries/iLLD/TC38A/Tricore/Scu/Std/IfxScuWdt.c
+  ../Libraries/iLLD/TC38A/Tricore/Scu/Std/IfxScuWdt.c \
+  ../Libraries/iLLD/TC38A/Tricore/Can/Can/IfxCan_Can.c \
+  ../Libraries/iLLD/TC38A/Tricore/Can/Std/IfxCan.c \
+  ../Libraries/iLLD/TC38A/Tricore/_PinMap/IfxCan_PinMap.c \
+  ../Libraries/iLLD/TC38A/Tricore/Cpu/Std/IfxCpu.c \
+  ../Libraries/iLLD/TC38A/Tricore/Pms/Std/IfxPmsPm.c \
+  ../Libraries/iLLD/TC38A/Tricore/_Impl/IfxCan_cfg.c \
+  ../Libraries/iLLD/TC38A/Tricore/Scu/Std/IfxScuCcu.c \
+  ../Libraries/iLLD/TC38A/Tricore/_Impl/IfxCpu_cfg.c \
+  ../Libraries/iLLD/TC38A/Tricore/Pms/Std/IfxPmsEvr.c
+  
 endif # OS_EE_BUILD
