@@ -262,6 +262,8 @@ INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/i
 INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/iLLD/TC38A/Tricore/Port/Std)))
 INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/iLLD/TC38A/Tricore/Scu/Std)))
 INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/iLLD/TC38A/Tricore/_PinMap)))
+INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/iLLD/TC38A/Tricore/Gpt12/Std)))
+INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/iLLD/TC38A/Tricore/Gpt12/IncrEnc)))
 # Add a subset of iLLD drivers to application build.
 OS_EE_APP_CFG_SRCS += \
   ../Libraries/iLLD/TC38A/Tricore/Port/Std/IfxPort.c \
@@ -276,6 +278,7 @@ OS_EE_APP_CFG_SRCS += \
   ../Libraries/iLLD/TC38A/Tricore/_Impl/IfxCan_cfg.c \
   ../Libraries/iLLD/TC38A/Tricore/Scu/Std/IfxScuCcu.c \
   ../Libraries/iLLD/TC38A/Tricore/_Impl/IfxCpu_cfg.c \
-  ../Libraries/iLLD/TC38A/Tricore/Pms/Std/IfxPmsEvr.c
+  ../Libraries/iLLD/TC38A/Tricore/Pms/Std/IfxPmsEvr.c \
+  ../Libraries/iLLD/TC38A/Tricore/Gpt12/Std/IfxGpt12.c
   
 endif # OS_EE_BUILD
