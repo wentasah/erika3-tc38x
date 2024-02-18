@@ -254,7 +254,12 @@ INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/I
 INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/Infra/Sfr/TC38A/_Reg)))
 INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/iLLD/TC38A/Tricore)))
 INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/Service/CpuGeneric)))
-# iLLD CAN implementation
+INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/Service/CpuGeneric/SysSe/Bsp)))
+INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/Service/CpuGeneric/If)))
+
+# iLLD 
+
+## iLLD CAN
 INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/iLLD/TC38A/Tricore/Cpu/Std)))
 INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/iLLD/TC38A/Tricore/Can/Can)))
 INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/iLLD/TC38A/Tricore/Can/Std)))
@@ -262,8 +267,21 @@ INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/i
 INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/iLLD/TC38A/Tricore/Port/Std)))
 INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/iLLD/TC38A/Tricore/Scu/Std)))
 INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/iLLD/TC38A/Tricore/_PinMap)))
+
+## iLLD GPT
 INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/iLLD/TC38A/Tricore/Gpt12/Std)))
 INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/iLLD/TC38A/Tricore/Gpt12/IncrEnc)))
+
+## iLLD QSPI
+INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/iLLD/TC38A/Tricore/Qspi/SpiMaster)))
+INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/iLLD/TC38A/Tricore/Qspi/SpiSlave)))
+INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/iLLD/TC38A/Tricore/Qspi/Std)))
+INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/iLLD/TC38A/Tricore/Qspi/)))
+
+## iLLD DMA
+INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/iLLD/TC38A/Tricore/Dma/Dma)))
+
+
 # Add a subset of iLLD drivers to application build.
 OS_EE_APP_CFG_SRCS += \
   ../Libraries/iLLD/TC38A/Tricore/Port/Std/IfxPort.c \
@@ -279,6 +297,13 @@ OS_EE_APP_CFG_SRCS += \
   ../Libraries/iLLD/TC38A/Tricore/Scu/Std/IfxScuCcu.c \
   ../Libraries/iLLD/TC38A/Tricore/_Impl/IfxCpu_cfg.c \
   ../Libraries/iLLD/TC38A/Tricore/Pms/Std/IfxPmsEvr.c \
-  ../Libraries/iLLD/TC38A/Tricore/Gpt12/Std/IfxGpt12.c
+  ../Libraries/iLLD/TC38A/Tricore/Gpt12/Std/IfxGpt12.c \
+  ../Libraries/Service/CpuGeneric/SysSe/Bsp/Bsp.c \
+  ../Libraries/iLLD/TC38A/Tricore/Qspi/SpiMaster/IfxQspi_SpiMaster.c \
+  ../Libraries/iLLD/TC38A/Tricore/Qspi/SpiSlave/IfxQspi_SpiSlave.c \
+  ../Libraries/iLLD/TC38A/Tricore/Qspi/Std/IfxQspi.c \
+  ../Libraries/Service/CpuGeneric/If/SpiIf.c \
+  ../Libraries/iLLD/TC38A/Tricore/Dma/Dma/IfxDma_Dma.c \
+  ../Libraries/iLLD/TC38A/Tricore/_Impl/IfxQspi_cfg.c 
   
 endif # OS_EE_BUILD
