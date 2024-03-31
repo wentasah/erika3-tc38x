@@ -281,6 +281,12 @@ INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/i
 ## iLLD DMA
 INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/iLLD/TC38A/Tricore/Dma/Dma)))
 
+## iLLD STM
+INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/iLLD/TC38A/Tricore/Stm/Timer)))
+INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/iLLD/TC38A/Tricore/Stm/Std)))
+INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Libraries/iLLD/TC38A/Tricore/_Impl)))
+INCLUDE_PATH += $(call short_native_path, $(abspath $(wildcard ../../Service/CpuGeneric/StdIf/)))
+
 
 # Add a subset of iLLD drivers to application build.
 OS_EE_APP_CFG_SRCS += \
@@ -304,6 +310,10 @@ OS_EE_APP_CFG_SRCS += \
   ../Libraries/iLLD/TC38A/Tricore/Qspi/Std/IfxQspi.c \
   ../Libraries/Service/CpuGeneric/If/SpiIf.c \
   ../Libraries/iLLD/TC38A/Tricore/Dma/Dma/IfxDma_Dma.c \
-  ../Libraries/iLLD/TC38A/Tricore/_Impl/IfxQspi_cfg.c 
+  ../Libraries/iLLD/TC38A/Tricore/_Impl/IfxQspi_cfg.c \
+  ../Libraries/Service/CpuGeneric/StdIf/IfxStdIf_Timer.c \
+  ../Libraries/iLLD/TC38A/Tricore/_Impl/IfxStm_cfg.c \
+  ../Libraries/iLLD/TC38A/Tricore/Stm/Timer/IfxStm_Timer.c \
+  ../Libraries/iLLD/TC38A/Tricore/Stm/Std/IfxStm.c 
   
 endif # OS_EE_BUILD
